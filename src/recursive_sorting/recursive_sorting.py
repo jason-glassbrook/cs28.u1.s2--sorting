@@ -25,15 +25,43 @@ from compare import compare_ascending
 
 
 def quick_sort(array, compare=compare_ascending):
-    # TODO: guided
+
+    __quick_sort(array, 0, len(array) - 1, compare)
 
     return array
 
 
-def merge(arrayA, arrayB, compare=compare_ascending):
-    elements = len(arrayA) + len(arrayB)
-    merged_array = [0] * elements
-    # TODO: mvp
+def __quick_sort(array, left, right, compare=compare_ascending):
+
+    # while length to be sorted is more than 1
+    if left < right:
+        # find a new partition
+        middle = __quick_sort_partition(array, left, right, compare)
+        # sort the left
+        __quick_sort(array, left, middle - 1, compare)
+        # sort the right
+        __quick_sort(array, middle + 1, right, compare)
+
+    return
+
+
+def __quick_sort_partition(array, left, right, compare=compare_ascending):
+
+    # choose a pivot value
+    pivot = array[right]
+
+    # move items less than pivot left, move items more than pivot right
+    i = left
+    for j in range(left, right):
+        if compare(array[j], pivot) < 0:
+            array[i], array[j] = array[j], array[i]
+            i += 1
+
+    # swap pivot to middle
+    array[i], array[right] = array[right], array[i]
+
+    return i
+
 
 ########################################
 #   MERGE SORT

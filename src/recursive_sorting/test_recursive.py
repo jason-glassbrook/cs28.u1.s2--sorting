@@ -2,6 +2,7 @@ import unittest
 import random
 import copy
 from recursive_sorting import (
+    quick_sort,
     merge_sort,
     merge_sort_in_place,
 )
@@ -16,6 +17,14 @@ class RecursiveSortingTests(unittest.TestCase):
         lambda: [-1, 0, 1, 2, 3, 4, 5],
         lambda: random.sample(range(200), 50),
     )
+
+    def test_quick_sort(self):
+
+        for test_array in self.test_arrays:
+
+            arrayA = test_array()
+            arrayB = copy.copy(arrayA)
+            self.assertEqual(quick_sort(arrayA), sorted(arrayB))
 
     def test_merge_sort(self):
 
