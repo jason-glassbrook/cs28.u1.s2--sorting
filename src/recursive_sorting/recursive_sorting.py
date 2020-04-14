@@ -31,19 +31,19 @@ def quick_sort(array, compare=compare_ascending):
     return array
 
 
-def __quick_sort(array, left, right, compare=compare_ascending):
+def __quick_sort(array, i_left, i_right, compare=compare_ascending):
 
     #=======================================
     # RECURSIVE CASE: array can be partitioned
 
     # while length to be sorted is more than 1
-    if left < right:
+    if i_left < i_right:
         # find a new partition
-        middle = __quick_sort_partition(array, left, right, compare)
+        i_middle = __quick_sort_partition(array, i_left, i_right, compare)
         # sort the left
-        __quick_sort(array, left, middle - 1, compare)
+        __quick_sort(array, i_left, i_middle - 1, compare)
         # sort the right
-        __quick_sort(array, middle + 1, right, compare)
+        __quick_sort(array, i_middle + 1, i_right, compare)
 
     #=======================================
     # BASE CASE: array cannot be partitioned
@@ -51,20 +51,20 @@ def __quick_sort(array, left, right, compare=compare_ascending):
     return
 
 
-def __quick_sort_partition(array, left, right, compare=compare_ascending):
+def __quick_sort_partition(array, i_left, i_right, compare=compare_ascending):
 
     # choose a pivot value
-    pivot = array[right]
+    pivot = array[i_right]
 
     # move items less than pivot left, move items more than pivot right
-    i = left
-    for j in range(left, right):
+    i = i_left
+    for j in range(i_left, i_right):
         if compare(array[j], pivot) < 0:
             array[i], array[j] = array[j], array[i]
             i += 1
 
     # swap pivot to middle
-    array[i], array[right] = array[right], array[i]
+    array[i], array[i_right] = array[i_right], array[i]
 
     return i
 
@@ -92,24 +92,26 @@ def __merge_sort(array, compare=compare_ascending):
     #=======================================
     # RECURSIVE CASE: array can be split
 
-    left_part, right_part = __merge_sort__split(array)
+    left, right = __merge_sort__split(array)
 
     # sort each part
-    left_part = __merge_sort(left_part, compare)
-    right_part = __merge_sort(right_part, compare)
+    left = __merge_sort(left, compare)
+    right = __merge_sort(right, compare)
 
     # merge
-    return __merge_sort__merge(left_part, right_part, compare)
+    return __merge_sort__merge(left, right, compare)
 
 
 def __merge_sort__split(array):
 
     halfish = len(array) // 2
 
-    left_part = array[:halfish]
-    right_part = array[halfish:]
+    left = array[:halfish]
+    right = array[halfish:]
 
-    return (left_part, right_part)
+    return (left, right)
+
+
 
 
 ########################################
