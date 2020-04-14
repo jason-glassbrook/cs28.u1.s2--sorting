@@ -33,6 +33,9 @@ def quick_sort(array, compare=compare_ascending):
 
 def __quick_sort(array, left, right, compare=compare_ascending):
 
+    #=======================================
+    # RECURSIVE CASE: array can be partitioned
+
     # while length to be sorted is more than 1
     if left < right:
         # find a new partition
@@ -41,6 +44,9 @@ def __quick_sort(array, left, right, compare=compare_ascending):
         __quick_sort(array, left, middle - 1, compare)
         # sort the right
         __quick_sort(array, middle + 1, right, compare)
+
+    #=======================================
+    # BASE CASE: array cannot be partitioned
 
     return
 
