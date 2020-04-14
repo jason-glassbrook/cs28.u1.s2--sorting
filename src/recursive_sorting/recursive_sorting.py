@@ -75,9 +75,31 @@ def __quick_sort__partition(array, left, right, compare=compare_ascending):
 
 
 def merge_sort(array, compare=compare_ascending):
-    # TODO: mvp
+
+    __merge_sort(array, compare)
 
     return array
+
+
+def __merge_sort(array, compare=compare_ascending):
+
+    #=======================================
+    # BASE CASE: array cannot be split
+
+    if len(array) <= 1:
+        return array
+
+    #=======================================
+    # RECURSIVE CASE: array can be split
+
+    left_part, right_part = __merge_sort__split(array)
+
+    # sort each part
+    left_part = __merge_sort(left_part, compare)
+    right_part = __merge_sort(right_part, compare)
+
+    # merge
+    return __merge_sort__merge(left_part, right_part, compare)
 
 
 ########################################
