@@ -1,5 +1,15 @@
 ############################################################
 #   ITERATIVE SORTING
+#-----------------------------------------------------------
+#   GUIDED
+#   - [x] complete insertion_sort() below
+#
+#   MVP
+#   - [x] complete selection_sort() below
+#   - [x] complete bubble_sort() below
+#
+#   STRETCH
+#   - [ ] complete count_sort() below
 ############################################################
 
 import sys
@@ -35,7 +45,6 @@ def insertion_sort(array, compare=compare_ascending):
     return array
 
 
-# TO-DO: Complete the selection_sort() function below
 def selection_sort(array, compare=compare_ascending):
     # 0. take some array
     # 1. imagine the beginning of the array as "sorted" -- currently empty
@@ -64,7 +73,6 @@ def selection_sort(array, compare=compare_ascending):
     return array
 
 
-# TO-DO:  implement the Bubble Sort function below
 def bubble_sort(array, compare=compare_ascending):
     # 0. take some array
     # 1. for each pair of items (i, i+1) in the "unsorted" array, compare
@@ -90,7 +98,7 @@ def bubble_sort(array, compare=compare_ascending):
     return array
 
 
-# STRETCH: implement the Count Sort function below
 def count_sort(array, maximum=-1, compare=compare_ascending):
+    # TODO: stretch
 
     return array
