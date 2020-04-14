@@ -66,9 +66,7 @@ def selection_sort(array, compare=compare_ascending):
                 p = j
 
         # swap
-        item = array[p]
-        array[p] = array[i]
-        array[i] = item
+        array[p], array[i] = array[i], array[p]
 
     return array
 
@@ -91,9 +89,7 @@ def bubble_sort(array, compare=compare_ascending):
         for j in range(0, m - 1):
             if compare(array[j + 1], array[j]) < 0:
                 # swap
-                item = array[j + 1]
-                array[j + 1] = array[j]
-                array[j] = item
+                array[j], array[j + 1] = array[j + 1], array[j]
 
     return array
 
