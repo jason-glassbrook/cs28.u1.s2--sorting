@@ -102,6 +102,16 @@ def __merge_sort(array, compare=compare_ascending):
     return __merge_sort__merge(left_part, right_part, compare)
 
 
+def __merge_sort__split(array):
+
+    halfish = len(array) // 2
+
+    left_part = array[:halfish]
+    right_part = array[halfish:]
+
+    return (left_part, right_part)
+
+
 ########################################
 #   MERGE SORT - IN PLACE
 ########################################
