@@ -37,7 +37,7 @@ Let's think about the group photo example again. Everyone's lined up and the pho
 
 ## Your Task
 
--   [ ] Implement the `quick_sort()` function in the Guided Project with your TA.
+-   [x] Implement the `quick_sort()` function in the Guided Project with your TA.
 
 ### Real-World Applications
 
@@ -68,9 +68,9 @@ Have you ever wondered how some of the languages you use actually implement thei
 
 ### Your Task
 
--   [ ] Implement `merge_sort()` in `recursive_sorting.py`. It's recommended that you use...
-    -   [ ] A recursive function that handles dividing the array (or subarray) in half
-    -   [ ] A helper function that handles merging sorted pieces back together
+-   [x] Implement `merge_sort()` in `recursive_sorting.py`. It's recommended that you use...
+    -   [x] A recursive function that handles dividing the array (or subarray) in half
+    -   [x] A helper function that handles merging sorted pieces back together
 -   [ ] ***STRETCH*** - Try writing an *in-place* ***Merge Sort*** algorithm.
 
 ## Stretch Goals

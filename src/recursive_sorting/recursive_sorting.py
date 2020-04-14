@@ -2,11 +2,11 @@
 #   RECURSIVE SORTING
 #-----------------------------------------------------------
 #   GUIDED
-#   - [ ] complete quick_sort()
+#   - [x] complete quick_sort()
 #
 #   MVP
-#   - [ ] complete merge()
-#   - [ ] complete merge_sort()
+#   - [x] complete merge()
+#   - [x] complete merge_sort()
 #
 #   STRETCH
 #   - [ ] complete merge_in_place()

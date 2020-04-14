@@ -35,10 +35,10 @@ That being said, please still use the 20 minute rule :slightly_smiling_face:
 
 ## MVP Tasks
 
--   [ ] Open up the [recursive_sorting](src/recursive_sorting) directory
--   [ ] Read through the descriptions of the `merge_sort` algorithm
--   [ ] Implement `merge_sort` in [recursive_sorting.py](src/recursive_sorting/recursive_sorting.py)
--   [ ] Test your implementation by running `test_recursive.py`
+-   [x] Open up the [recursive_sorting](src/recursive_sorting) directory
+-   [x] Read through the descriptions of the `merge_sort` algorithm
+-   [x] Implement `merge_sort` in [recursive_sorting.py](src/recursive_sorting/recursive_sorting.py)
+-   [x] Test your implementation by running `test_recursive.py`
 
 ## Stretch Goals
 
