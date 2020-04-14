@@ -36,7 +36,7 @@ def __quick_sort(array, left, right, compare=compare_ascending):
     # while length to be sorted is more than 1
     if left < right:
         # find a new partition
-        middle = __quick_sort_partition(array, left, right, compare)
+        middle = __quick_sort__partition(array, left, right, compare)
         # sort the left
         __quick_sort(array, left, middle - 1, compare)
         # sort the right
@@ -45,7 +45,7 @@ def __quick_sort(array, left, right, compare=compare_ascending):
     return
 
 
-def __quick_sort_partition(array, left, right, compare=compare_ascending):
+def __quick_sort__partition(array, left, right, compare=compare_ascending):
 
     # choose a pivot value
     pivot = array[right]
