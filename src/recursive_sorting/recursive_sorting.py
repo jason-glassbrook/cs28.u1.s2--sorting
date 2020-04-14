@@ -76,9 +76,7 @@ def __quick_sort_partition(array, i_left, i_right, compare=compare_ascending):
 
 def merge_sort(array, compare=compare_ascending):
 
-    __merge_sort(array, compare)
-
-    return array
+    return __merge_sort(array, compare)
 
 
 def __merge_sort(array, compare=compare_ascending):
@@ -112,6 +110,49 @@ def __merge_sort__split(array):
     return (left, right)
 
 
+def __merge_sort__merge(left, right, compare=compare_ascending):
+
+    n_left = len(left)
+    n_right = len(right)
+
+    # create blank merged array
+    n_merged = n_left + n_right
+    merged = [None] * n_merged
+
+    # merge left part and right part into merged array...
+
+    i_merged, i_left, i_right = 0, 0, 0
+
+    # while neither left part or right part is "empty"...
+    while i_left < n_left and i_right < n_right:
+
+        left_item = left[i_left]
+        right_item = right[i_right]
+
+        if compare(left_item, right_item) <= 0:
+            # if equal, preserve current order: left, right
+            merged[i_merged] = left_item
+            i_left += 1
+
+        else:
+            merged[i_merged] = right_item
+            i_right += 1
+
+        i_merged += 1
+
+    # one part will not be empty, so...
+    if i_left < n_left:
+        # merge rest of left
+        merged[i_merged:] = left[i_left:]
+
+    elif i_right < n_right:
+        # merge rest of right
+        merged[i_merged:] = right[i_right:]
+
+    else:
+        raise Exception("HOW DID YOU GET HERE?")
+
+    return merged
 
 
 ########################################
