@@ -1,34 +1,49 @@
 import unittest
 import random
-from recursive_sorting import *
+import copy
+from recursive_sorting import (
+    quick_sort,
+    merge_sort,
+    merge_sort_in_place,
+)
+
 
 class RecursiveSortingTests(unittest.TestCase):
+
+    test_arrays = (
+        lambda: [1, 5, 8, 4, 2, 9, 6, 0, 3, 7],
+        lambda: [],
+        lambda: [2],
+        lambda: [-1, 0, 1, 2, 3, 4, 5],
+        lambda: random.sample(range(200), 50),
+    )
+
+    def test_quick_sort(self):
+
+        for test_array in self.test_arrays:
+
+            arrayA = test_array()
+            arrayB = copy.copy(arrayA)
+            self.assertEqual(quick_sort(arrayA), sorted(arrayB))
+
     def test_merge_sort(self):
-        arr1 = [1, 5, 8, 4, 2, 9, 6, 0, 3, 7]
-        arr2 = []
-        arr3 = [2]
-        arr4 = [0, 1, 2, 3, 4, 5]
-        arr5 = random.sample(range(200), 50)
 
-        self.assertEqual(merge_sort(arr1), [0,1,2,3,4,5,6,7,8,9])
-        self.assertEqual(merge_sort(arr2), [])
-        self.assertEqual(merge_sort(arr3), [2])
-        self.assertEqual(merge_sort(arr4), [0,1,2,3,4,5])
-        self.assertEqual(merge_sort(arr5), sorted(arr5))
+        for test_array in self.test_arrays:
 
-    # Uncomment this test to test your in-place merge sort implementation
-    # def test_in_place_merge_sort(self):
-    #     arr1 = [1, 5, 8, 4, 2, 9, 6, 0, 3, 7]
-    #     arr2 = []
-    #     arr3 = [2]
-    #     arr4 = [0, 1, 2, 3, 4, 5]
-    #     arr5 = random.sample(range(200), 50)
+            arrayA = test_array()
+            arrayB = copy.copy(arrayA)
+            self.assertEqual(merge_sort(arrayA), sorted(arrayB))
 
-    #     self.assertEqual(merge_sort_in_place(arr1, 0, len(arr1)-1), [0,1,2,3,4,5,6,7,8,9])
-    #     self.assertEqual(merge_sort_in_place(arr2, 0, len(arr2)-1), [])
-    #     self.assertEqual(merge_sort_in_place(arr3, 0, len(arr3)-1), [2])
-    #     self.assertEqual(merge_sort_in_place(arr4, 0, len(arr4)-1), [0,1,2,3,4,5])
-    #     self.assertEqual(merge_sort_in_place(arr5, 0, len(arr5)-1), sorted(arr5))
+    def test_in_place_merge_sort(self):
+
+        for test_array in self.test_arrays:
+
+            arrayA = test_array()
+            arrayB = copy.copy(arrayA)
+            self.assertEqual(
+                merge_sort_in_place(arrayA, 0, len(arrayA) - 1),
+                sorted(arrayB),
+            )
 
 
 if __name__ == '__main__':
